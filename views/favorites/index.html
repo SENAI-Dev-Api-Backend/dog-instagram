@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      href="/favoritos/favorites.css"
+    />
     <title>InstaPet</title>
   </head>
   <body>
@@ -32,67 +34,17 @@
       <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./home.html"
+            <a class="nav-link" href="/"
               >Home <span class="sr-only">(página atual)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="loginButton" href="#">Login</a>
+            <a class="nav-link bi bi-person" id="loginButton" href="#">My User</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="addCat" href="#">Novo Gato (+)</a>
-          </li>
-          
-          <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="addCatModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addCatModalLabel">Adicionar Gato</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="catName">Nome</label>
-                      <input type="text" class="form-control" id="catName" placeholder="Nome do Gato">
-                    </div>
-                    <div class="form-group">
-                      <label for="catDesc">Descrição</label>
-                      <textarea class="form-control" id="catDesc" rows="3" placeholder="Descrição do Gato"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="catSex">Sexo</label>
-                      <select class="form-control" id="catSex">
-                        <option value="male">Macho</option>
-                        <option value="female">Fêmea</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="catImage">Imagem</label>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="catImage">
-                        <label class="custom-file-label" for="catImage">Escolher arquivo</label>
-                      </div>
-                      <div class="preview mt-3">
-                        <img id="previewImage" class="img-fluid" src="#" alt="Preview da Imagem">
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-primary" id="addCatForm">Adicionar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <li class="nav-item dropdown">
             <a
               class="nav-link"
-              href="/favoritos"
+              href="../src/favorite.html"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -120,7 +72,7 @@
                     <label for="passwordInput" class="form-label">Senha</label>
                     <input type="password" class="form-control" id="passwordInput">
                   </div>
-                  <button type="submit" class="btn btn-primary mb-3" id="entrar">Entrar</button>
+                  <button type="submit" class="btn btn-primary mb-3">Entrar</button>
                 </form>
                 <p>Não tem uma conta? <a id="registerButton" href="#">Registre-se aqui</a>.</p>
               </div>
@@ -141,18 +93,18 @@
                     <input type="text" class="form-control" id="nameInput" required>
                   </div>
                   <div class="mb-3">
-                    <label for="emailInputRegister" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailInputRegister" required>
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailInput" required>
                   </div>
                   <div class="mb-3">
-                    <label for="passwordInputRegister" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="passwordInputRegister" required>
+                    <label for="passwordInput" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="passwordInput" required>
                   </div>
                   <div class="mb-3">
-                    <label for="confirmPasswordInputRegister" class="form-label">Confirme a senha</label>
-                    <input type="password" class="form-control" id="confirmPasswordInputRegister" required>
+                    <label for="confirmPasswordInput" class="form-label">Confirme a senha</label>
+                    <input type="password" class="form-control" id="confirmPasswordInput" required>
                   </div>
-                  <button type="submit" class="btn btn-primary" id="registerButtonModal">Registrar</button>
+                  <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
               </div>
             </div>
@@ -172,20 +124,19 @@
       </div>
     </nav>
     <main>
-      <h1 class="text-center m-5">Nossos Pets</h1>
+      <h1 class="text-center m-5">Meus Favoritos</h1>
       <div class="cards">
         <div class="container" id="catCard">
           </div>
         <div
-          class="modal fade productModal"
+          class="modal fade"
           id="productModal"
           tabindex="-1"
           aria-labelledby="productModalLabel"
           aria-hidden="true"
-          data-key=""
         >
           <div class="modal-dialog modal-lg">
-            <div class="modal-content productModalIndex">
+            <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="productModalLabel">
                   Detalhes do Produto
@@ -211,7 +162,6 @@
                       <h2>Nome do Produto</h2>
                       <p>Descrição do produto.</p>
                       <form class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary like-btn curtir modal-button" data-key="">Like</button>
                         <button type="button" class="btn btn-outline-secondary favorite-btn favorito">Favoritar</button>
                       </form>
                     </div>
@@ -248,7 +198,6 @@
       integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
       crossorigin="anonymous"
     ></script>
-    <script src="/cats.js"></script>
-    <script src="/home.js"></script>
+    <script src="/favoritos/favorites.js" defer></script>
   </body>
 </html>

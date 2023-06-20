@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Pet Shop</title>
+  </head>
+  <body>
+    <form id="create-user-form">
+      <input
+        class="create-user-input"
+        type="text"
+        name="name"
+        placeholder="Nome do usuário"
+      />
+      <input
+        class="create-user-input"
+        type="text"
+        name="birthDate"
+        placeholder="Data de nascimento"
+      />
+      <input
+        class="create-user-input"
+        type="email"
+        name="email"
+        placeholder="Email"
+      />
+      <input
+        class="create-user-input"
+        type="text"
+        name="cpf"
+        placeholder="CPF"
+      />
+      <button id="create-user-button" type="submit">Criar usuário</button>
+    </form>
+    <table id="user-list-container">
+      <tr>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Email</th>
+        <th>CPF</th>
+        <th>Ações</th>
+      </tr>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>

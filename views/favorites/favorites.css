@@ -1,0 +1,19 @@
+.custom-file-input:lang(pt) ~ .custom-file-label::after {
+  content: "Procurar";
+}
+
+.custom-file-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.preview {
+  display: none;
+  justify-content: center;
+}
+
+.preview img {
+  max-width: 100%;
+  max-height: 200px;
+}

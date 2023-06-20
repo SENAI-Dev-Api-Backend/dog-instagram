@@ -1,7 +1,7 @@
 {
-  "name": "pet-shop",
+  "name": "dog-instagram",
   "version": "1.0.0",
-  "description": "Um ERP para controle de execução de serviços em animais de um pet shop.",
+  "description": "Um Instragram para cachorros.",
   "main": "server.js",
   "scripts": {
     "migrate": "npx sequelize-cli db:migrate",

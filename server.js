@@ -3,7 +3,10 @@ const { User } = require("./models")
 
 const app = express()
 app.use(express.json())
+app.use("/assets", express.static("./public/assets"))
 app.use("/", express.static("./views/home"))
+app.use("/favoritos", express.static("./views/favorites"))
+app.use("/usuarios", express.static("./views/users"))
 
 app.get("/api/user", async (request, response) => {
   const users = await User.findAll()

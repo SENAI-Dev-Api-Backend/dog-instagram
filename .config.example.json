@@ -1,10 +1,11 @@
 {
   "database": {
-    "dialect": "postgresql",
+    "dialect": "mysql",
     "host": "localhost",
-    "username": "postgres",
-    "password": "postgres",
-    "database": "situacao-aprendizagem",
+    "port": 3306,
+    "username": "root",
+    "password": "senai",
+    "database": "dog-instagram",
     "pool": {
       "max": 5,
       "min": 0,
