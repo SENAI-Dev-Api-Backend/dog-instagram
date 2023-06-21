@@ -1,5 +1,5 @@
 const express = require("express")
-const { User } = require("./models")
+const { User, Dog } = require("./models")
 
 const app = express()
 app.use(express.json())
@@ -8,6 +8,11 @@ app.use("/", express.static("./views/home"))
 app.use("/favoritos", express.static("./views/favorites"))
 app.use("/usuarios", express.static("./views/users"))
 
+app.get("/api/dog", async (request, response) => {
+  const dogs = await Dog.findAll()
+
+  response.json(dogs)
+})
 app.get("/api/user", async (request, response) => {
   const users = await User.findAll()
 
@@ -46,24 +51,6 @@ app.delete("/api/user/:id", function (request, response) {
       })
     })
 })
-
-// serviços => serviceTypes
-//   nome => name
-//   preço => price
-//   duração => duration
-
-// animais => animals
-//   nome => name
-//   raça => breed
-//   idade => age
-//   peso => weight
-//   nome do dono => owneName
-//   é vacinado => isVaccinated
-
-// atendimentos => services
-//   serviço => serviceType
-//   animal => animal
-//   data agendada => scheduledDate
 
 app.listen(3000, () => {
   console.log(`Servidor está rodando em http://localhost:3000`)

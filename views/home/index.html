@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="/home.css" />
     <title>InstaPet</title>
   </head>
   <body>
@@ -36,59 +35,6 @@
               >Home <span class="sr-only">(página atual)</span></a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="loginButton" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="addCat" href="#">Novo Gato (+)</a>
-          </li>
-          
-          <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="addCatModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addCatModalLabel">Adicionar Gato</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="catName">Nome</label>
-                      <input type="text" class="form-control" id="catName" placeholder="Nome do Gato">
-                    </div>
-                    <div class="form-group">
-                      <label for="catDesc">Descrição</label>
-                      <textarea class="form-control" id="catDesc" rows="3" placeholder="Descrição do Gato"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="catSex">Sexo</label>
-                      <select class="form-control" id="catSex">
-                        <option value="male">Macho</option>
-                        <option value="female">Fêmea</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="catImage">Imagem</label>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="catImage">
-                        <label class="custom-file-label" for="catImage">Escolher arquivo</label>
-                      </div>
-                      <div class="preview mt-3">
-                        <img id="previewImage" class="img-fluid" src="#" alt="Preview da Imagem">
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-primary" id="addCatForm">Adicionar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <li class="nav-item dropdown">
             <a
               class="nav-link"
@@ -102,129 +48,73 @@
               Favoritos
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="loginButton">Login</a>
+          </li>
         </ul>
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div
+          class="modal fade"
+          id="loginModal"
+          tabindex="-1"
+          aria-labelledby="loginModalLabel"
+          aria-hidden="true"
+        >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="loginModalLabel">Fazer login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-              </div>
-              <div class="modal-body text-center">
-                <form>
-                  <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
-                  </div>
-                  <div class="mb-3">
-                    <label for="passwordInput" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="passwordInput">
-                  </div>
-                  <button type="submit" class="btn btn-primary mb-3" id="entrar">Entrar</button>
-                </form>
-                <p>Não tem uma conta? <a id="registerButton" href="#">Registre-se aqui</a>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registre-se</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-              </div>
-              <div class="modal-body text-center">
-                <form>
-                  <div class="mb-3">
-                    <label for="nameInput" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nameInput" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="emailInputRegister" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailInputRegister" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="passwordInputRegister" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="passwordInputRegister" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="confirmPasswordInputRegister" class="form-label">Confirme a senha</label>
-                    <input type="password" class="form-control" id="confirmPasswordInputRegister" required>
-                  </div>
-                  <button type="submit" class="btn btn-primary" id="registerButtonModal">Registrar</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>       
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Pesquisar"
-            aria-label="Pesquisar"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Pesquisar
-          </button>
-        </form>
-      </div>
-    </nav>
-    <main>
-      <h1 class="text-center m-5">Nossos Pets</h1>
-      <div class="cards">
-        <div class="container" id="catCard">
-          </div>
-        <div
-          class="modal fade productModal"
-          id="productModal"
-          tabindex="-1"
-          aria-labelledby="productModalLabel"
-          aria-hidden="true"
-          data-key=""
-        >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content productModalIndex">
-              <div class="modal-header">
-                <h5 class="modal-title" id="productModalLabel">
-                  Detalhes do Produto
-                </h5>
                 <button
                   type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
-                  aria-label="Close"
+                  aria-label="Fechar"
                 ></button>
               </div>
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <img
-                        src="../img/6.jpeg"
-                        class="img-fluid"
-                        alt="Produto"
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <h2>Nome do Produto</h2>
-                      <p>Descrição do produto.</p>
-                      <form class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary like-btn curtir modal-button" data-key="">Like</button>
-                        <button type="button" class="btn btn-outline-secondary favorite-btn favorito">Favoritar</button>
-                      </form>
-                    </div>
+              <div class="modal-body text-center">
+                <form>
+                  <div class="mb-3">
+                    <label for="emailInput" class="form-label">CPF</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="emailInput"
+                      aria-describedby="emailHelp"
+                      placeholder="CPF"
+                      maxlength="14"
+                      pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                      required
+                    />
                   </div>
-                </div>
+                  <div class="mb-3">
+                    <label for="passwordInput" class="form-label">Senha</label>
+                    <input
+                      type="password"
+                      placeholder="Senha"
+                      class="form-control"
+                      id="passwordInput"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary mb-3"
+                    id="entrar"
+                  >
+                    Entrar
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </nav>
+    <main>
+      <h1 class="text-center m-5">Nossos Pets</h1>
+      <div class="cards" id="dog-list"></div>
     </main>
     <footer class="bg-dark text-light pt-3">
       <div class="container">
-        <div class="row" >
+        <div class="row">
           <div class="col-md-12">
             <ul class="list-inline text-center">
               <li class="list-inline-item"><a href="#">Facebook</a></li>
@@ -232,7 +122,7 @@
               <li class="list-inline-item"><a href="#">Instagram</a></li>
             </ul>
             <p class="text-center">
-              &copy; Douglas Melere Tibola Junior. Todos os direitos reservados.
+              &copy; Dog Instagram. 2022 / Todos os direitos reservados.
             </p>
           </div>
         </div>
@@ -248,7 +138,6 @@
       integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
       crossorigin="anonymous"
     ></script>
-    <script src="/cats.js"></script>
     <script src="/home.js"></script>
   </body>
 </html>
